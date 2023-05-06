@@ -1,0 +1,20 @@
+<h1 style="text-align: center;">Subjects</h1>
+<table style="width:100%">
+    {{#each subjects}}
+    <tr>
+        <td style="width:50%">
+            {{name}}
+        </td>
+        <td>
+            <a href="/subjects/{{_id}}">
+                <button class="btn btn-info">Details</button>
+            </a>
+
+        </td>
+    </tr>
+    {{/each}}
+</table>
+<br>
+<a href="/subjects/create">
+    <button class="btn btn-dark">Add</button>
+</a>

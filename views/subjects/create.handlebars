@@ -1,0 +1,31 @@
+<h1 style="text-align: center;">Create</h1>
+<form action="/subjects" method="POST">
+    <div>
+        <label for = "">Name</label><br>
+        <input type="text" class="form-control" name="name" required>
+    </div><br>
+    <div>
+        <label for="">Code</label><br>
+        <input type="text" class="form-control" name="code" required>
+    </div><br>
+    <div>
+        <label for="">Department</label><br>
+        <select name= "department" id ="" class="form-select" required>
+            {{#each department}}
+                <option value={{_id}}>{{name}}</option>
+            {{/each}}
+        </select>
+    </div><br>
+    <div>
+        <label for="">Previous</label><br>
+        <select name="previous" id="" class="form-select">
+            {{#each subjects}}
+            <option value={{_id}}>{{name}}</option>
+            {{/each}}
+        </select>
+    </div><br>
+
+    <div>
+    <button type="submit" class="btn btn-success">Save</button>
+    </div>
+</form>
