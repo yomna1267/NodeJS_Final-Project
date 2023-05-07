@@ -1,0 +1,29 @@
+<h1 style="text-align: center;">Students</h1>
+<table style="width:100%">
+       <tr>
+        <th>username</th>
+        <th>Password</th>
+        <th>Acadimic Number</th>
+    </tr>
+    {{#each students}}
+ 
+    <tr>
+        <td style="width:50%">
+            {{username}}
+        </td>
+        
+        <td style="width:50%">
+            {{password}}
+        </td>
+
+        <td style="width:50%">
+            {{ acadimic_number}}
+        </td>
+        </tr>
+    </tr>
+    {{/each}}
+</table>
+<br>
+<a href="/students/create">
+    <button class="btn btn-dark">Add</button>
+</a>
