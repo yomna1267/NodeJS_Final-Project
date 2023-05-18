@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import subjectsRouter from './routes/subject.js';
 import departmentRouter from './routes/department.js';
 import studentsRouter from './routes/student.js'
+import doctorRouter from './routes/doctor.js'
 import dotenv from 'dotenv';
 
 // load environment to process.env
@@ -30,7 +31,8 @@ app.use(express.urlencoded({extended : true}));
 
 app.use('/subjects', subjectsRouter);
 app.use('/departments', departmentRouter);
-app.use('/students' , studentsRouter)
+app.use('/students' , studentsRouter);
+app.use('/doctors', doctorRouter);
 
 app.listen(process.env.PORT, () =>{
     console.log("started the application")
