@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+
 const subject = new Schema({
     name:{
         type: String,
@@ -22,5 +23,4 @@ const subject = new Schema({
     }
 });
 
-const subjectModel = model('subject', subject);
-export default subjectModel;
+export default model('subject', subject);
