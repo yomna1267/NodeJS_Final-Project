@@ -1,0 +1,163 @@
+<html>
+<head>
+  <style>
+    /* Use a custom font */
+    @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+    /* Add some style to the body */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1508615070457-7baeba4003e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Add some style to the form container */
+    .container {
+      width: 400px;
+      height: 430px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Add some style to the form title */
+    .title {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: 500;
+      color: #333333;
+    }
+
+    /* Add some style to the form element */
+    form {
+      width: 80%;
+      margin: 0 auto;
+      padding-top: 20px;
+    }
+
+    /* Add some style to the input elements */
+    input[type=email], input[type=password] {
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      padding: 15px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      border-bottom: 2px solid #cccccc;
+    }
+
+    /* Change the border color on focus */
+    input[type=text]:focus, input[type=password]:focus {
+      border-color: #0099ff;
+    }
+
+    /* Add some style to the radio buttons */
+    input[type=radio] {
+      display: none;
+    }
+
+    /* Add some style to the radio labels */
+    label {
+      display: inline-block;
+      width: calc(100% / 3.9);
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #999999;
+    }
+
+    /* Change the label color on hover */
+    label:hover {
+      color: #0099ff;
+    }
+
+    /* Change the label color on checked */
+    input[type=radio]:checked + label {
+      color: #0099ff;
+    }
+
+    /* Add some style to the submit button */
+    button[type=submit] {
+      width: 100%;
+      background-color: #0099ff;
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    
+     /* Change the button opacity on hover */
+     button[type=submit]:hover {
+       opacity: 0.8; 
+     }
+
+     /* Add some style to the footer text */
+     .footer {
+       text-align:center; 
+       margin-top :20px; 
+       font-size :14px; 
+       color :#999999; 
+     }
+     
+     /* Add a link to the footer text */
+     .footer a {
+       color :#0099ff; 
+       text-decoration :none; 
+     }
+     
+     /* Change the link color on hover */
+     .footer a:hover {
+       text-decoration :underline; 
+     }
+</style>
+
+</head>
+<body>
+  
+  <!-- Create a container for the form -->
+  <div class="container">
+  
+   <!-- Create a title for the form -->
+   <h1 class="title"> Login Form</h1>
+   
+   <!-- Create a form element -->
+   <form action="/login", method="POST">
+   
+     <!-- Create a text field for the username -->
+     <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+   
+     <!-- Create a text field for the password -->
+     <input type="password" id="password" name="password" placeholder="Enter your password" required>
+   
+     <!-- Create three radio buttons to detect how to login -->
+     <p>Login As:</p>
+     <input type="radio" id="student" name="role" value="student" checked>
+     <label for="student">Student</label>
+     <input type="radio" id="professor" name="role" value="professor" style="margin-left: 7%;">
+     <label for="professor" style="margin-left: 7%;">Professor</label>
+     <input type="radio" id="admin" name="role" value="admin" style="margin-left: 10%;">
+     <label for="admin" style="margin-left: 10%;">Admin</label>
+   
+     <!-- Create a submit button -->
+     <button type="submit"> Login </button>
+   </form>
+
+   <!-- Create a footer text -->
+   <p class="footer">Don't have an account? <a href="http://localhost:5000/register">Register</a></p>
+   
+ </div>
+
+</body>
+</html>

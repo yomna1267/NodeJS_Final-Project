@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+
 const department = new Schema({
     name:{
         type: String,
@@ -11,5 +12,4 @@ const department = new Schema({
     }, 
 });
 
-const departmentModel = model('department', department);
-export default departmentModel;
+export default model('department', department);

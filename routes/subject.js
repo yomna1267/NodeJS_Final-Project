@@ -11,4 +11,4 @@ router.get('/:id', show);
 
 router.post('/', store);
 
-export default  router;
+export default router;

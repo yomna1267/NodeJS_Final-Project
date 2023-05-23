@@ -14,8 +14,6 @@ const student = new Schema({
         type: Number , 
         required : true , 
     }
-})
+});
 
-const studentModel = model('student',student);
-
-export default studentModel;
+export default model('student',student);

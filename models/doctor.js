@@ -22,5 +22,4 @@ const doctor = new Schema({
     }
 });
 
-const doctorModel = model('doctor', doctor);
-export default doctorModel;
+export default model('doctor', doctor);
