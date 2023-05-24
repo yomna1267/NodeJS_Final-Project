@@ -1,11 +1,11 @@
 import { Router } from "express" ;
-import { loginFormGet, loginFormPost } from "../controller/user.js";
+import { registerFormGet, registerFormPost, loginFormGet, loginFormPost } from "../controller/user.js";
 
 const router = new Router();
 
-// router.get('/register', registerFormGet);
+router.get('/register', registerFormGet);
 
-// router.post('/register', registerFormPost);
+router.post('/register', registerFormPost);
 
 
 router.get('/login', loginFormGet);

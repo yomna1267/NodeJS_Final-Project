@@ -4,19 +4,19 @@ import doctorModel from "../models/doctor.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-// export const registerFormGet = (req, res) => {
-//     res.render('authentication/register');
-// }
+export const registerFormGet = (req, res) => {
+    res.render('authentication/register');
+}
 
-// export const registerFormPost = async (req, res) => {
-//     const { username, password, role } = req.body;
+export const registerFormPost = async (req, res) => {
+    const { username, password, role } = req.body;
 
-//     const salt = bcrypt.genSaltSync(10);
-//     const hash = bcrypt.hashSync(password, salt);
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
 
-//     await user.create({ username, password: hash, role });
-//     res.redirect('/login');
-// }
+    await user.create({ username, password: hash, role });
+    res.redirect('/login');
+}
 
 export const loginFormGet = (req, res) => { 
     res.render('authentication/login');
@@ -62,5 +62,3 @@ export const loginFormPost = async (req, res) => {
     if(role == 'doctor') return res.redirect('/doctors');
     return res.redirect('/students/reg');
 }
-//646e79c7e50ff87502f8317b
-//646e79c7e50ff87502f8317b
