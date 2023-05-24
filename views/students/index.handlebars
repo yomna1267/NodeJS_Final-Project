@@ -1,23 +1,29 @@
 <h1 style="text-align: center;">Students</h1>
-<table style="width:100%">
+<table class="table table-hover">
        <tr>
         <th>username</th>
         <th>Password</th>
         <th>Acadimic Number</th>
+        <th>actions</th>
     </tr>
     {{#each students}}
- 
+    
     <tr>
-        <td style="width:50%">
+        <td>
             {{username}}
         </td>
         
-        <td style="width:50%">
+        <td>
             {{password}}
         </td>
 
-        <td style="width:50%">
+        <td>
             {{ acadimic_number}}
+        </td>
+
+        <td>
+            <a href="/students/update/{{_id}}"><button  class="btn btn-danger" >update</button></a>
+            <a href="/students/delete/{{_id}}"><button class="btn btn-primary">delete</button></a>
         </td>
         </tr>
     </tr>

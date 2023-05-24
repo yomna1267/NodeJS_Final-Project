@@ -31,7 +31,6 @@ app.use(express.urlencoded({extended : true}));
 app.use('/subjects', subjectsRouter);
 app.use('/departments', departmentRouter);
 app.use('/students' , studentsRouter)
-
 app.listen(process.env.PORT, () =>{
     console.log("started the application")
 });
