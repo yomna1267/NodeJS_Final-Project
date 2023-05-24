@@ -11,7 +11,7 @@ router.post('/save', store); // post data to db
 
 router.get('/update/:id' , getupdate)
 
-router.post('/update' , updateStudent)
+router.post('/:id' , updateStudent)
 
 router.get('/delete/:id' , deleteStudent)
 
