@@ -7,7 +7,7 @@ const doctor = new Schema({
 
     code: {
         type: String,
-        required: false,
+        required: true,
     },
 
     department: {

@@ -14,11 +14,8 @@ router.post('/', store); // post data to db
 
 ////////////////////////////
 
-router.post('/reg', reg );
-router.get('/reg', (req, res) => {
-    console.log("Student Loged in ");
-    res.render("students/reg");
-});
+router.post('/reg', save );
+router.get('/reg', reg);
  
 
 router.get('/register', register);

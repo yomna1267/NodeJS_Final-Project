@@ -21,18 +21,20 @@ export const store = async (req, res) => {
 
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(code, salt);
+    try {
+        await doctorModel.create({
+            name,
+            code: hash,
+            department,
+            subject
+        });
+        await userModel.create({ username: name, password: hash, role: 'doctor' });
 
-
-    await doctorModel.create({
-        name,
-        code: hash,
-        department,
-        subject
-    });
-
-    await userModel.create({username: name, password: hash, role: 'doctor'});
-    
-    res.redirect('/doctors');
+        res.redirect('/doctors');
+    }
+    catch (err) {
+        console.log("there's an error");
+    }
 };
 
 export const show = async (req, res) => {
