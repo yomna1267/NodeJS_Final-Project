@@ -59,5 +59,5 @@ export const loginFormPost = async (req, res) => {
 
     if(role == 'admin') return res.redirect('/adminRedirection');
     if(role == 'doctor') return res.redirect('/doctors');
-    return res.redirect('/subjects');
+    return res.redirect('/students/reg');
 }
