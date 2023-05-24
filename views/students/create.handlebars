@@ -1,7 +1,7 @@
 
     {{#if update}}
     <h1 style="text-align: center;">Update Student Accounnt</h1>
-    <form action="/students/:id" method="POST">
+    <form action="/students/{{student._id}}" method="POST">
     <div>
         <label for="username">UserName</label><br>
         <input type="text" id="username" class="form-control" name="username" required value="{{student.username}}">
