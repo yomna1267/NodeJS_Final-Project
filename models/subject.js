@@ -1,25 +1,30 @@
 import { Schema, model } from "mongoose";
 
 const subject = new Schema({
-    name:{
+    name: {
         type: String,
         required: true,
     },
 
-    code:{
-       type: String,
-        required: false, 
+    code: {
+        type: String,
+        required: false,
     },
 
-    department:{
+    department: {
         type: Schema.Types.ObjectId,
         required: false,
         ref: 'department'
     },
 
-    previous:{
+    previous: {
         type: Schema.Types.ObjectId,
         required: false,
+    },
+    
+    number_of_enrolled_students : {
+        type:Number,
+        required:false
     }
 });
 

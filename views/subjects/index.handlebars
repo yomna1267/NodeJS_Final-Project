@@ -1,16 +1,29 @@
 <h1 style="text-align: center;">Subjects</h1>
 <table style="width:100%">
+    <tr>
+        <th><h4>Subject_Name</h4></th>
+        <th><h4>number_of_enrolled_students</h4></th>
+        <th><h4>Details </h4></th>
+        <th><h4>Delete</h4></th>
+ 
     {{#each subjects}}
     <tr>
         <td style="width:50%">
             {{name}}
-        </td>
+        </td>       
+         <td> {{ number_of_enrolled_students}}   </td>
+
         <td>
             <a href="/subjects/{{_id}}">
                 <button class="btn btn-info" style="align-items: right;">Details</button>
             </a>
+            
 
         </td>
+        <td>
+             <a href="/subjects">
+                <button class="btn btn-info" style="align-items: right;">Delete</button>
+            </a></td>
     </tr>
     {{/each}}
 </table>

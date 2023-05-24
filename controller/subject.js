@@ -18,7 +18,8 @@ export const store = async (req, res) => {
         name,
         code,
         department,
-        previous
+        previous,
+        number_of_enrolled_students : 0
     });
     res.redirect('/subjects');
 };

@@ -1,0 +1,23 @@
+<style>
+    label {
+        display: inline-block;
+        text-align: center;
+        padding: 10px 210px;
+        background-color: #f2f2f2;
+        color: #333;
+        font-size: 18px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+</style>
+
+<label for="out">Availabe Courses for you</label><br><br>
+<form action="/students/reg" method="POST">
+    {{#each subjects}}
+       <div>
+        <span>{{name}}</span>
+        <button type="submit" class="btn btn-success"name="{{name}}" value="{{name}}">Enroll </button>
+      </div>
+    {{/each}}
+
+</form>

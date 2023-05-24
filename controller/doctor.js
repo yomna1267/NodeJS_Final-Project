@@ -1,6 +1,8 @@
 import departmentModel from "../models/department.js";
+import userModel from "../models/user.js";
 import subjectModel from "../models/subject.js";
 import doctorModel from "../models/doctor.js";
+import bcrypt from 'bcryptjs';
 
 export const index = async (req, res) => {
     const doctors = await doctorModel.find({}, { name: 1 }).lean();
@@ -16,12 +18,20 @@ export const create = async (req, res) => {
 
 export const store = async (req, res) => {
     const { name, code, department, subject } = req.body;
+
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(code, salt);
+
+
     await doctorModel.create({
         name,
-        code,
+        code: hash,
         department,
         subject
     });
+
+    await userModel.create({username: name, password: hash, role: 'doctor'});
+    
     res.redirect('/doctors');
 };
 

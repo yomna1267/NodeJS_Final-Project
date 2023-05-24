@@ -1,0 +1,83 @@
+<html>
+<head>
+  <style>
+    /* Use the same style as before */
+    @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      width: 600px;
+      height: 270px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .title {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: 500;
+      color: #333333;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 150px;
+    }
+
+    .button {
+      width: 150px;
+      height: 50px;
+      background-color: #0099ff;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .button:hover {
+      opacity: 0.8; 
+    }
+</style>
+</head>
+<body>
+  
+  <!-- Create a container for the page -->
+  <div class="container">
+  
+   <!-- Create a title for the page -->
+   <h1 class="title">Welcome to the University System</h1>
+   <h3 class="title" style="color: #6b7983;">Choose a specific page</h3>
+   
+   <!-- Create a div for the buttons -->
+   <div class="buttons">
+   
+     <!-- Create a button for the students page -->
+     <button onclick="window.location.href = '/students';" class="button">Students Page</button>
+   
+     <!-- Create a button for the doctors page -->
+     <button onclick="window.location.href = '/doctors';" class="button">Doctors Page</button>
+   
+     <!-- Create a button for the subjects page -->
+     <button onclick="window.location.href = '/subjects';" class="button">Subjects Page</button>
+   
+   </div>
+   
+ </div>
+
+</body>
+</html>

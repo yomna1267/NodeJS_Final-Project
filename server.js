@@ -6,6 +6,7 @@ import departmentRouter from './routes/department.js';
 import studentsRouter from './routes/student.js'
 import doctorRouter from './routes/doctor.js'
 import authRouter from './routes/auth.js'
+import adminRouter from './routes/admin.js'
 import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
 import { validateToken } from "./middlewares/auth.js";
@@ -36,11 +37,13 @@ app.use(express.urlencoded({ extended: true }));
 // Use cookie parser
 app.use(cookieParser());
 
+// Routs
 app.use('/', authRouter);
 app.use('/subjects', validateToken, subjectsRouter);
 app.use('/departments', validateToken, departmentRouter);
 app.use('/students', validateToken, studentsRouter);
 app.use('/doctors', validateToken, doctorRouter);
+app.use('/adminRedirection', adminRouter);
 
 
 app.listen(process.env.PORT, () => {

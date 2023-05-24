@@ -4,6 +4,8 @@
         <th>username</th>
         <th>Password</th>
         <th>Acadimic Number</th>
+        <th>ervious_Subjects</th>
+        <th>Enrolled_Subjects</th>
     </tr>
     {{#each students}}
  
@@ -18,6 +20,11 @@
 
         <td style="width:50%">
             {{ acadimic_number}}
+        </td>
+        <td>
+            {{#each    pervious_subjects }}
+                {{   this}}
+            {{/each}}
         </td>
         </tr>
     </tr>

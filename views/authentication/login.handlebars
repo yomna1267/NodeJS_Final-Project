@@ -44,7 +44,7 @@
     }
 
     /* Add some style to the input elements */
-    input[type=email], input[type=password] {
+    input[type=text], input[type=password] {
       width: 100%;
       box-sizing: border-box;
       margin-bottom: 20px;
@@ -136,7 +136,7 @@
    <form action="/login", method="POST">
    
      <!-- Create a text field for the username -->
-     <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+     <input type="text" id="username" name="username" placeholder="Enter your Username" required>
    
      <!-- Create a text field for the password -->
      <input type="password" id="password" name="password" placeholder="Enter your password" required>
@@ -145,8 +145,8 @@
      <p>Login As:</p>
      <input type="radio" id="student" name="role" value="student" checked>
      <label for="student">Student</label>
-     <input type="radio" id="professor" name="role" value="professor" style="margin-left: 7%;">
-     <label for="professor" style="margin-left: 7%;">Professor</label>
+     <input type="radio" id="doctor" name="role" value="doctor" style="margin-left: 7%;">
+     <label for="doctor" style="margin-left: 7%;">doctor</label>
      <input type="radio" id="admin" name="role" value="admin" style="margin-left: 10%;">
      <label for="admin" style="margin-left: 10%;">Admin</label>
    
