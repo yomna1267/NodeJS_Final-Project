@@ -1,38 +1,47 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">UNI</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/doctors">Home</a></li>
+      <li><a href="/departments">Department</a></li>
+      <li><a href="/students">Student</a></li>
+      <li><a href="/subjects">Subject</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container  p-5 my-5 border">
 <h1 style="text-align: center;">Students</h1>
-<style>
-    th {
-        padding: 20px;
-        /* Adjust the padding value according to your needs */
-    }
-</style>
-<table style="width:100%">
-    <tr>
+<table class="table table-hover">
+       <tr>
         <th>username</th>
         <th>Password</th>
         <th>Acadimic Number</th>
-        <th>ervious_Subjects</th>
-        <th>Enrolled_Subjects</th>
+        <th>actions</th>
     </tr>
     {{#each students}}
-
+    
     <tr>
-        <td style="width:50%">
+        <td>
             {{username}}
         </td>
-
-        <td style="width:50%">
+        
+        <td>
             {{password}}
         </td>
 
-        <td style="width:50%">
+        <td>
             {{ acadimic_number}}
         </td>
+
         <td>
-            {{#each pervious_subjects }}
-            {{ this}}
-            {{/each}}
+            <a href="/students/update/{{_id}}"><button  class="btn btn-danger" >update</button></a>
+            <a href="/students/delete/{{_id}}"><button class="btn btn-primary">delete</button></a>
         </td>
-    </tr>
+        </tr>
     </tr>
     {{/each}}
 </table>
@@ -40,3 +49,5 @@
 <a href="/students/create">
     <button class="btn btn-dark">Add</button>
 </a>
+<a href="/students/generate">Export CSV</a>
+<div class="container  p-5 my-5 border">

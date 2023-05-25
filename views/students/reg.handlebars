@@ -1,42 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <style>
-        label {
-            display: inline-block;
-            text-align: center;
-            padding: 10px 210px;
-            background-color: #f2f2f2;
-            color: #333;
-            font-size: 18px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-    </style>
-</head>
-
-<body>
-        <label for="out">What do you want to do </label><br><br>
-        <a href="/students/{{student._id}}/register">
-            <button class="btn btn-dark">Enroll new Course</button>
-        </a>
-        <br>
-        <br>
-        <a href="/students/{{student._id}}/print">
-            <button class="btn btn-dark">View Enrolled Courses</button>
-        </a>
-        <br>
-        <br>
-        <a href="/students/{{student._id}}/view">
-            <button class="btn btn-dark">View Pervious Courses</button>
-        </a>
-
- </body>
-
-</html>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">UNI</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/students/{{student._id}}/register">Register</a></li>
+                <li><a href="/students/{{student._id}}/print">Print</a></li>
+                <li><a href="/students/{{student._id}}/view">View</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container  p-5 my-5 border">
+    <table class="table table-hover">
+     <tr>
+    <td><a href="/students/{{student._id}}/register">
+        <button class="btn btn-dark">Enroll new Course</button>
+    </a></td>
+    <br>
+    <br>
+     <td><a href="/students/{{student._id}}/print">
+        <button class="btn btn-dark">View Enrolled Courses</button>
+    </a></td>
+    <br>
+    <br>
+     <td><a href="/students/{{student._id}}/view">
+        <button class="btn btn-dark">View Pervious Courses</button>
+    </a></td>
+ 
+     </tr>
+     <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+     </tr>
+    </table>
+       </div>

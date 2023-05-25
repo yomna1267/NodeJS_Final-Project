@@ -1,19 +1,58 @@
-<h1 style="text-align: center;">Create Student Accounnt</h1>
-<form action="/students" method="POST">
-    <div>
-        <label for = "">UserName</label><br>
-        <input type="text" class="form-control" name="username" required>
-    </div><br>
-    <div>
-        <label for="">Password</label><br>
-        <input type="text" class="form-control" name="password" required>
-    </div><br>
-    <div>
-        <label for="">Acadimic Number</label><br>
-        <input type="text" class="form-control" name="acadimic_number" required>
-    </div><br>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">UNI</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/doctors">Home</a></li>
+      <li><a href="/departments">Department</a></li>
+      <li><a href="/students">Student</a></li>
+      <li><a href="/subjects">Subject</a></li>
+    </ul>
+  </div>
+</nav>
 
+
+<div class="container  p-5 my-5 border">
+   {{#if update}}
+    <h1 style="text-align: center;">Update Student Accounnt</h1>
+    <form action="/students/{{student._id}}" method="POST">
     <div>
+        <label for="username">UserName</label><br>
+        <input type="text" id="username" class="form-control" name="username" required value="{{student.username}}">
+    </div><br>
+    <div>
+        <label for="password">Password</label><br>
+        <input type="text" id="password" class="form-control" name="password" required  value="{{student.password}}">
+    </div><br>
+    <div>
+        <label for="acnumber">Acadimic Number</label><br>
+        <input type="number" id="acnumber" class="form-control" name="acadimic_number" required value="{{student.acadimic_number}}"> 
+    </div><br>
+    <div> 
+    <button type="submit" class="btn btn-success">update</button>    
+    </form>    
+    {{else}}
+    <h1 style="text-align: center;">Create Student Accounnt</h1>
+    <form action="/students/save" method="POST">
+    <div>
+        <label for = "username">UserName</label><br>
+        <input type="text" id="username" class="form-control" name="username" required >
+    </div><br>
+    <div>
+        <label for="password">Password</label><br>
+        <input type="text" id="password" class="form-control" name="password" required  >
+    </div><br>
+    <div>
+        <label for="acnumber">Acadimic Number</label><br>
+        <input type="number" id="acnumber" class="form-control" name="acadimic_number" required>
+    </div><br>
+    <div>   
+    {{#if checkreuslt}}
+    <div class="alert alert-success" role="alert">can not be inserted</div>
+    {{/if}}
     <button type="submit" class="btn btn-success">Save</button>
     </div>
-</form>
+    </form>
+    {{/if}} 
+</div>

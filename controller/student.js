@@ -2,6 +2,8 @@ import studentModel from "../models/student.js";
 import subjectModel from "../models/subject.js";
 import userModel from "../models/user.js";
 import subject from "../models/subject.js";
+import { createObjectCsvWriter } from "csv-writer";
+import fs from 'fs'
 
 import bcrypt from 'bcryptjs';
 
@@ -9,6 +11,11 @@ export const index = async (req, res) => {
   const students = await studentModel.find().lean()
   res.render('students/index', { students })
 };
+
+export const studentLogIn = (req , res)=>{
+   res.render("students/reg")
+}
+
 
 export const create = async (req, res) => {
   res.render('students/create')
@@ -37,6 +44,35 @@ export const store = async (req, res) => {
     console.log(err.message)
   }
 };
+
+
+export const getupdate = async(req , res)=>{
+  const {id} = req.params;
+  const student = await studentModel.findById(id).lean();
+  console.log(student);
+  res.render('students/create' , {student , update : true})
+}
+
+export const updateStudent = async(req , res)=>{
+ const {id} = req.params;
+ const {username , password , acadimic_number} = req.body;
+ console.log(username  + " " + password)
+ try{
+   await studentModel.findByIdAndUpdate(id , {username , password})
+   res.redirect('/students')
+ }
+ catch(err){
+   console.log(err.message)
+ }
+}
+
+export const deleteStudent = async(req , res)=>{
+   const {id} = req.params;
+   await studentModel.findOneAndDelete({"_id" : id})
+   req.method = "GET"
+   res.redirect('/students')
+}
+
 
 ////////////////////////////////////////
 
@@ -95,7 +131,52 @@ export const savesub = async (req, res) => {
   
 };
 
-/*
-export const show = async (req, res) => {
-  console.log("show");
-};*/
+export const generate = async (req, res) => {
+  try {
+    // Fetch all students from the database
+    const students = await studentModel.find({}, 'username');
+ 
+    // Prepare data for CSV
+    const csvData = students.map(student => ({
+      name: student.username
+    }));
+ 
+    // Define the CSV file path
+    const csvFilePath = './students.csv';
+ 
+    // Create a CSV writer instance
+    const csvWriter = createObjectCsvWriter({
+      path: csvFilePath,
+      header: [{ id: 'name', title: 'Name' },
+        {title:"Week1"},
+        {title:"Week2"},
+        {title:"Week3"},
+        {title:"Week4"},
+        {title:"Week5"},
+        {title:"Week6"},
+        {title:"Week7"},
+        {title:"Week8"},
+        {title:"Week9"},
+        {title:"Week10"} 
+    ]
+    });
+ 
+    // Write the data to the CSV file
+    await csvWriter.writeRecords(csvData);
+ 
+    // Send the generated CSV file as a response
+    res.download(csvFilePath, 'students.csv', err => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+      }
+ 
+      // Delete the CSV file after it is sent
+      fs.unlinkSync(csvFilePath);
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+ 

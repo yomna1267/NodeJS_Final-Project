@@ -1,24 +1,31 @@
-<style>
-    label {
-        display: inline-block;
-        text-align: center;
-        padding: 10px 210px;
-        background-color: #f2f2f2;
-        color: #333;
-        font-size: 18px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-</style>
-
-<label for="out">Availabe Courses for you</label><br><br>
+   <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">UNI</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/students/{{_id}}/register">Register</a></li>
+                <li><a href="/students/{{_id}}/print">Print</a></li>
+                <li><a href="/students{{_id}}/view">View</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+ 
+<div class="container  p-5 my-5 border">
+<h1 style="text-align: center;">Available Courses</h1>
   <form  method="post"   action ='/students/reg?_method=PUT'>
+  <table class = "table table-hover">
+    <tr>
+      <th>Course</th>
+      <th>Enroll</th>
+    </tr>
     {{#each subjects}}
-       <div>
-        <span>{{name}} </span>
-         <button type="submit" class="btn btn-success" name="{{name}}" value="{{name}}">Enroll </button>
-         <br><br>
-      </div>
+       <tr>
+          <td><span>{{name}} </span></td>
+         <td><button type="submit" class="btn btn-success" name="{{name}}" value="{{name}}">Enroll </button></td>
+      </tr>
     {{/each}}
-
-</form>
+</table>
+</form> 
+</div>

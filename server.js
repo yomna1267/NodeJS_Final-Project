@@ -47,6 +47,9 @@ app.use('/students', validateToken, studentsRouter);
 app.use('/doctors', validateToken, doctorRouter);
 app.use('/adminRedirection', adminRouter);
 
+app.get('reg' , (req , res) => {
+    res.render('reg' , {layout: false})
+})
 
 app.listen(process.env.PORT, () => {
     console.log(`started the application on http://localhost:${process.env.PORT}/login`);
