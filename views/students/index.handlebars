@@ -1,17 +1,25 @@
 <h1 style="text-align: center;">Students</h1>
+<style>
+    th {
+        padding: 20px;
+        /* Adjust the padding value according to your needs */
+    }
+</style>
 <table style="width:100%">
-       <tr>
+    <tr>
         <th>username</th>
         <th>Password</th>
         <th>Acadimic Number</th>
+        <th>ervious_Subjects</th>
+        <th>Enrolled_Subjects</th>
     </tr>
     {{#each students}}
- 
+
     <tr>
         <td style="width:50%">
             {{username}}
         </td>
-        
+
         <td style="width:50%">
             {{password}}
         </td>
@@ -19,7 +27,12 @@
         <td style="width:50%">
             {{ acadimic_number}}
         </td>
-        </tr>
+        <td>
+            {{#each pervious_subjects }}
+            {{ this}}
+            {{/each}}
+        </td>
+    </tr>
     </tr>
     {{/each}}
 </table>

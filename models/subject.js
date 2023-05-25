@@ -20,7 +20,12 @@ const subject = new Schema({
     previous:{
         type: Schema.Types.ObjectId,
         required: false,
+    },
+    number_of_enrolled_students : {
+        type:Number,
+        required:false
     }
-});
+}
+);
 
 export default model('subject', subject);

@@ -1,18 +1,19 @@
-<h1 style="text-align: center;">Create</h1>
-<form action="/subjects" method="POST">
-    <div>
+<h1 style="text-align: center;">edit</h1>
+
+<form  method="post"   action ='/subjects/{{subject._id}}?_method=PUT'>
+    <div>   
         <label for="">Name</label>
 
         <br>
 
-        <input type="text" class="form-control" name="name" required>
+        <input type="text" class="form-control" name="name" value="{{subject.name}}" required>
     </div>
     
     <br>
     
     <div>
         <label for="">Code</label><br>
-        <input type="text" class="form-control" name="code" value="{{subject.code}}" required>
+        <input type="text" class="form-control" name="code"  value = "{{subject.code}}"required>
     </div>
 
     <br>

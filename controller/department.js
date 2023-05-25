@@ -3,21 +3,25 @@ import subjectModel from "../models/subject.js";
 
 export const index = async (req, res) => {
     const departments = await departmentModel.find({}, { name: 1 }).lean();
-    res.render('departments/index', { departments});
+    res.render('departments/index', { departments });
 };
 
 export const create = async (req, res) => {
     const department = await departmentModel.find().lean();
     const subjects = await subjectModel.find().lean();
-    res.render('departments/create', { department, subjects});
+    res.render('departments/create', { department, subjects });
 };
 
 export const store = async (req, res) => {
     const { name, code } = req.body;
-    await departmentModel.create({
-        name,
-        code,
-    });
+    try {
+        await departmentModel.create({
+            name,
+            code,
+        });
+    } catch (err) {
+        console.log(err.message);
+    }
     res.redirect('/departments');
 };
 

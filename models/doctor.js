@@ -1,22 +1,22 @@
 import { Schema, model } from "mongoose";
 const doctor = new Schema({
-    name:{
+    name: {
         type: String,
         required: true,
     },
 
-    code:{
-       type: String,
-        required: false, 
+    code: {
+        type: String,
+        required: true,
     },
 
-    department:{
+    department: {
         type: Schema.Types.ObjectId,
         required: false,
         ref: 'department'
     },
 
-   subject:{
+    subject: {
         type: Schema.Types.ObjectId,
         required: false,
     }
