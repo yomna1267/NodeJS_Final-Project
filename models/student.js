@@ -1,19 +1,27 @@
-import { Schema , model } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const student = new Schema({
-    username : {
-        type : String , 
-        required : true
-    }, 
-    password : {
-        type : String , 
-        required : true
+    username: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    acadimic_number: {
+        type: Number,
+        required: true,
+    },
+    pervious_subjects: {
+        type: [],
+        required: false
+    },
+    enrolled_subjects: {
+        type: [ ],
+        required: false
     }
-    ,
-    acadimic_number : {
-        type: Number , 
-        required : true , 
-    }
-});
+},
+{timestamps:true});
 
-export default model('student',student);
+export default model('student', student);

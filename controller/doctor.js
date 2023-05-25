@@ -1,6 +1,8 @@
 import departmentModel from "../models/department.js";
+import userModel from "../models/user.js";
 import subjectModel from "../models/subject.js";
 import doctorModel from "../models/doctor.js";
+import bcrypt from 'bcryptjs';
 
 export const index = async (req, res) => {
     const doctors = await doctorModel.find({}, { name: 1 }).lean();
@@ -13,16 +15,28 @@ export const create = async (req, res) => {
     res.render('doctors/create', { department, subjects });
 };
 
-
+export const save = async (req,res)=>{
+    console.log("saved ");
+}
 export const store = async (req, res) => {
     const { name, code, department, subject } = req.body;
-    await doctorModel.create({
-        name,
-        code,
-        department,
-        subject
-    });
-    res.redirect('/doctors');
+
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(code, salt);
+    try {
+        await doctorModel.create({
+            name,
+            code: hash,
+            department,
+            subject
+        });
+        await userModel.create({ username: name, password: hash, role: 'doctor' });
+
+        res.redirect('/doctors');
+    }
+    catch (err) {
+        console.log("there's an error");
+    }
 };
 
 export const show = async (req, res) => {
